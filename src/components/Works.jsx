@@ -1,5 +1,5 @@
 import React from 'react';
-import { Tilt } from 'react-tilt';
+import Tilt from 'react-parallax-tilt';
 import { motion } from 'framer-motion';
 import { styles } from '../styles';
 import { github } from '../assets';
@@ -19,11 +19,9 @@ const ProjectCard = ({
     <motion.div variants={fadeIn('up', 'spring', index * 0.5, 0.75)}>
       <Tilt
         className="bg-tertiary p-5 rounded-2x1 sm:w-[360px] w-full"
-        options={{
-          max: 45,
-          scale: 1,
-          speed: 450,
-        }}
+        tiltMaxAngleX={15}
+        tiltMaxAngleY={15}
+        transitionSpeed={450}
       >
         <div className="relative w-full h-[230px] ">
           <img

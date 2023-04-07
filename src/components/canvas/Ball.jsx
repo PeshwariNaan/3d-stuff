@@ -26,10 +26,34 @@ const Ball = (props) => {
         <Decal
           map={decal}
           position={[0, 0, 1]}
-          rotation={[2 * Math.PI, 0, 6.25]}
+          rotation={[2 * Math.PI, 0, 2 * Math.PI]}
         />
-        <Decal map={decal} position={[-1, 0, 0]} rotation={[0, 0, 0]} />
-        <Decal map={decal} position={[0, 1, 0]} rotation={[0, 0, 0]} />
+        <Decal
+          map={decal}
+          position={[1, 0, 0]}
+          rotation={[2 * Math.PI, Math.PI / 2, 2 * Math.PI]}
+        />
+        <Decal
+          debug
+          map={decal}
+          position={[0, 1, 0]}
+          rotation={[-Math.PI / 2, 2 * Math.PI, -Math.PI / 2]}
+        />
+        <Decal
+          map={decal}
+          position={[0, -1, 0]}
+          rotation={[Math.PI / 2, 2 * Math.PI, Math.PI / 2]}
+        />
+        <Decal
+          map={decal}
+          position={[0, 0, -1]}
+          rotation={[-Math.PI, 0, -Math.PI]}
+        />
+        <Decal
+          map={decal}
+          position={[-1, 0, 0]}
+          rotation={[-2 * Math.PI, -Math.PI / 2, -2 * Math.PI]}
+        />
       </mesh>
     </Float>
   );
@@ -37,7 +61,7 @@ const Ball = (props) => {
 
 const BallCanvas = ({ icon }) => {
   return (
-    <Canvas frameloop="demand" gl={{ preserveDrawingBuffer: true }}>
+    <Canvas frameloop="always" gl={{ preserveDrawingBuffer: true }}>
       <Suspense fallback={<CanvasLoader />}>
         <OrbitControls enableZoom={false} />
         <Ball imgUrl={icon} />
